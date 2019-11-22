@@ -8,7 +8,7 @@
 "mem":"20G"
 },
 
-"generate_files":
+"suppa_generate_local_events":
 {
 "queue":"{params.queue}",
 "time": "{params.time}",
@@ -16,12 +16,140 @@
 "mem":"{resources.mem}"
 },
 
-"merge_results":
+"suppa_generate_transcript_events":
 {
 "queue":"{params.queue}",
 "time": "{params.time}",
 "threads":"{resources.threads}",
 "mem":"{resources.mem}"
-}
+},
+
+"suppa_psi_per_event_SE":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_MX":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_RI":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_AF":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_AL":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_A3":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_event_A5":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_psi_per_isoform":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_SE":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_MX":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_RI":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_AF":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_AL":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_A3":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_A5":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"suppa_diffSplice_transcripts":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
 
 }
