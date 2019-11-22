@@ -1,0 +1,28 @@
+###############################################################################
+#
+#   Config file for this Snakemake pipeline.
+#
+#   AUTHOR: Maciej_Bak
+#   AFFILIATION: Swiss_Institute_of_Bioinformatics
+#   CONTACT: maciej.bak@unibas.ch
+#   CREATED: 22-11-2019
+#   LICENSE: GPL v3.0
+#
+###############################################################################
+---
+
+# path to the directory with all the scripts and executable files
+src_dir: "src"
+
+# path for the result directory
+output_dir: "output_dir"
+
+# file names for the random samples
+samples_filenames:
+  - "sample1"
+  - "sample2"
+  - "sample3"
+  - "sample4"
+  - "sample5"
+
+...

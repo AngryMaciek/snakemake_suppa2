@@ -1,0 +1,21 @@
+###############################################################################
+#
+#   Dependencies required for the pipeline to run.
+#
+#   AUTHOR: Maciej_Bak
+#   AFFILIATION: Swiss_Institute_of_Bioinformatics
+#   CONTACT: maciej.bak@unibas.ch
+#   CREATED: 22-11-2019
+#   LICENSE: GPL v3.0
+#
+###############################################################################
+---
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.7.3
+  - numpy=1.17.2
+
+...

@@ -1,0 +1,27 @@
+{
+
+"__default__":
+{
+"queue":"6hours",
+"time": "01:00:00",
+"threads":"1",
+"mem":"20G"
+},
+
+"generate_files":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+},
+
+"merge_results":
+{
+"queue":"{params.queue}",
+"time": "{params.time}",
+"threads":"{resources.threads}",
+"mem":"{resources.mem}"
+}
+
+}
