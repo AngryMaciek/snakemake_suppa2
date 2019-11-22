@@ -11,18 +11,26 @@
 ###############################################################################
 ---
 
-# path to the directory with all the scripts and executable files
-src_dir: "src"
+# genomic annotation in GTF format
+gtf: "../../RESOURCES/Homo_sapiens.GRCh38.87.gtf"
 
-# path for the result directory
-output_dir: "output_dir"
+# quantified transcripts expression
+transcript_quantification: "sample_input.tsv"
 
-# file names for the random samples
-samples_filenames:
-  - "sample1"
-  - "sample2"
-  - "sample3"
-  - "sample4"
-  - "sample5"
+# path for the output directory
+result_dir: "output_dir"
+
+# sample names (as in the input table)
+CONTROL:
+  - "WT1"
+  - "WT2"
+EXPERIMENT:
+  - "KD1"
+  - "KD2"
+
+# SUPPA parameters:
+threshold: "10"
+total_filter: "1"
+lower_bound: "0.00"
 
 ...
