@@ -237,10 +237,10 @@ rule suppa_psi_per_event_SE:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.SE_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_SE_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -277,10 +277,10 @@ rule suppa_psi_per_event_MX:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.MX_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_MX_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -317,10 +317,10 @@ rule suppa_psi_per_event_RI:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.RI_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_RI_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -333,7 +333,7 @@ rule suppa_psi_per_event_AF:
     output:
         TSV_PSI_output = os.path.join("{output_dir}", "{sample}", "AF.psi")
     params:
-        STAFNG_output_prefix = os.path.join("{output_dir}", "{sample}", "AF"),
+        STRING_output_prefix = os.path.join("{output_dir}", "{sample}", "AF"),
         TSV_sample_quant = \
             os.path.join("{output_dir}", "quantification", "{sample}.tsv"),
         tpm_filter = config["total_filter"],
@@ -357,10 +357,10 @@ rule suppa_psi_per_event_AF:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.AF_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_AF_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -373,7 +373,7 @@ rule suppa_psi_per_event_AL:
     output:
         TSV_PSI_output = os.path.join("{output_dir}", "{sample}", "AL.psi")
     params:
-        STALNG_output_prefix = os.path.join("{output_dir}", "{sample}", "AL"),
+        STRING_output_prefix = os.path.join("{output_dir}", "{sample}", "AL"),
         TSV_sample_quant = \
             os.path.join("{output_dir}", "quantification", "{sample}.tsv"),
         tpm_filter = config["total_filter"],
@@ -397,10 +397,10 @@ rule suppa_psi_per_event_AL:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.AL_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_AL_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -413,7 +413,7 @@ rule suppa_psi_per_event_A3:
     output:
         TSV_PSI_output = os.path.join("{output_dir}", "{sample}", "A3.psi")
     params:
-        STA3NG_output_prefix = os.path.join("{output_dir}", "{sample}", "A3"),
+        STRING_output_prefix = os.path.join("{output_dir}", "{sample}", "A3"),
         TSV_sample_quant = \
             os.path.join("{output_dir}", "quantification", "{sample}.tsv"),
         tpm_filter = config["total_filter"],
@@ -437,10 +437,10 @@ rule suppa_psi_per_event_A3:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.A3_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_A3_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -453,7 +453,7 @@ rule suppa_psi_per_event_A5:
     output:
         TSV_PSI_output = os.path.join("{output_dir}", "{sample}", "A5.psi")
     params:
-        STA5NG_output_prefix = os.path.join("{output_dir}", "{sample}", "A5"),
+        STRING_output_prefix = os.path.join("{output_dir}", "{sample}", "A5"),
         TSV_sample_quant = \
             os.path.join("{output_dir}", "quantification", "{sample}.tsv"),
         tpm_filter = config["total_filter"],
@@ -477,10 +477,10 @@ rule suppa_psi_per_event_A5:
     shell:
         """
         suppa.py psiPerEvent \
-        --ioe-file {input.A5_ioe} \
-        --expression-file {params.quant} \
+        --ioe-file {input.TSV_A5_ioe} \
+        --expression-file {params.TSV_sample_quant} \
         --total-filter {params.tpm_filter} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log}
         """
 
@@ -497,7 +497,7 @@ rule suppa_psi_per_isoform:
             os.path.join("{output_dir}", "quantification")
     output:
         TSV_PSI_output = \
-            os.path.join("{output_dir}", "{sample}", "_isoform.psi")
+            os.path.join("{output_dir}", "{sample}_isoform.psi")
     params:
         GTF_gtf = config["gtf"],
         STRING_output_prefix = os.path.join("{output_dir}", "{sample}"),
@@ -552,25 +552,25 @@ rule merge_SE:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"SE.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"SE.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"SE_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"SE_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"SE.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"SE.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"SE_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"SE_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"SE.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"SE.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"SE_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"SE_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_MX:
@@ -592,25 +592,25 @@ rule merge_MX:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"MX.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"MX.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"MX_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"MX_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"MX.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"MX.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"MX_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"MX_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"MX.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"MX.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"MX_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"MX_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_RI:
@@ -632,25 +632,25 @@ rule merge_RI:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"RI.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"RI.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"RI_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"RI_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"RI.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"RI.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"RI_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"RI_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"RI.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"RI.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"RI_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"RI_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_AF:
@@ -672,25 +672,25 @@ rule merge_AF:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"AF.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AF.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AF_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"AF_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"AF.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AF.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AF_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"AF_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"AF.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AF.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AF_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"AF_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_AL:
@@ -712,25 +712,25 @@ rule merge_AL:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"AL.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AL.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AL_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"AL_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"AL.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AL.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AL_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"AL_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"AL.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"AL.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"AL_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"AL_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_A3:
@@ -752,25 +752,25 @@ rule merge_A3:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"A3.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A3.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A3_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"A3_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"A3.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A3.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A3_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"A3_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"A3.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A3.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A3_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"A3_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_A5:
@@ -792,30 +792,30 @@ rule merge_A5:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"A5.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A5.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A5_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"A5_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"A5.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A5.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A5_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"A5_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"A5.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i,"A5.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"A5_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"A5_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 rule merge_isoform:
     input:
-        expand(os.path.join("{output_dir}", "{sample}", "_isoform.psi"), \
+        expand(os.path.join("{output_dir}", "{sample}_isoform.psi"), \
             output_dir=config["result_dir"], \
             sample=config["CONTROL"]+config["EXPERIMENT"])
     output:
@@ -835,25 +835,25 @@ rule merge_isoform:
     run:
         # merge PSI tables for both conditions and for all samples
         df_list = []
-        for i in params.control_samples:
-            fname = os.path.join(params.output_dir,i,"_isoform.psi")
+        for i in params.LIST_control_samples:
+            fname = os.path.join(params.DIR_output_dir,i+"_isoform.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"isoform_CONTROL.psi")
+        fname = os.path.join(params.DIR_output_dir,"isoform_CONTROL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"_isoform.psi")
+        for i in params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i+"_isoform.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"isoform_EXPERIMENT.psi")
+        fname = os.path.join(params.DIR_output_dir,"isoform_EXPERIMENT.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
         df_list = []
-        for i in params.control_samples+params.experiment_samples:
-            fname = os.path.join(params.output_dir,i,"_isoform.psi")
+        for i in params.LIST_control_samples+params.LIST_experiment_samples:
+            fname = os.path.join(params.DIR_output_dir,i+"_isoform.psi")
             df_list.append(pd.read_csv(fname, sep="\t", index_col=0))
         merged_df = pd.concat(df_list, axis=1).fillna("nan")
-        fname = os.path.join(params.output_dir,"isoform_ALL.psi")
+        fname = os.path.join(params.DIR_output_dir,"isoform_ALL.psi")
         merged_df.to_csv(fname, sep="\t", index_label=False)
 
 ##############################################################################
@@ -900,18 +900,18 @@ rule suppa_diffSplice_SE:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.SE_ioe} \
-        --psi {input.SE_CONTROL} {input.SE_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_SE_ioe} \
+        --psi {input.TSV_SE_CONTROL} {input.TSV_SE_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_SE.psivec {params.output_dir}/Delta_psi_SE.psivec &&
-        mv Delta_psi_SE.dpsi {params.output_dir}/Delta_psi_SE.dpsi;
+        mv Delta_psi_SE.psivec {params.DIR_output_dir}/Delta_psi_SE.psivec &&
+        mv Delta_psi_SE.dpsi {params.DIR_output_dir}/Delta_psi_SE.dpsi;
         """
 
 rule suppa_diffSplice_MX:
@@ -954,18 +954,18 @@ rule suppa_diffSplice_MX:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.MX_ioe} \
-        --psi {input.MX_CONTROL} {input.MX_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_MX_ioe} \
+        --psi {input.TSV_MX_CONTROL} {input.TSV_MX_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_MX.psivec {params.output_dir}/Delta_psi_MX.psivec &&
-        mv Delta_psi_MX.dpsi {params.output_dir}/Delta_psi_MX.dpsi;
+        mv Delta_psi_MX.psivec {params.DIR_output_dir}/Delta_psi_MX.psivec &&
+        mv Delta_psi_MX.dpsi {params.DIR_output_dir}/Delta_psi_MX.dpsi;
         """
 
 rule suppa_diffSplice_RI:
@@ -1008,18 +1008,18 @@ rule suppa_diffSplice_RI:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.RI_ioe} \
-        --psi {input.RI_CONTROL} {input.RI_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_RI_ioe} \
+        --psi {input.TSV_RI_CONTROL} {input.TSV_RI_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_RI.psivec {params.output_dir}/Delta_psi_RI.psivec &&
-        mv Delta_psi_RI.dpsi {params.output_dir}/Delta_psi_RI.dpsi;
+        mv Delta_psi_RI.psivec {params.DIR_output_dir}/Delta_psi_RI.psivec &&
+        mv Delta_psi_RI.dpsi {params.DIR_output_dir}/Delta_psi_RI.dpsi;
         """
 
 rule suppa_diffSplice_AF:
@@ -1033,7 +1033,7 @@ rule suppa_diffSplice_AF:
         TSV_AF_ioe = os.path.join("{output_dir}", "AS_events", \
             "events_AF_variable_"+config["threshold"]+".ioe"),
         DIR_output_dir = "{output_dir}",
-        STAFNG_output_prefix = "Delta_psi_AF",
+        STRING_output_prefix = "Delta_psi_AF",
         method = "empirical",
         area = "1000",
         lower_bound = config["lower_bound"],
@@ -1062,18 +1062,18 @@ rule suppa_diffSplice_AF:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.AF_ioe} \
-        --psi {input.AF_CONTROL} {input.AF_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_AF_ioe} \
+        --psi {input.TSV_AF_CONTROL} {input.TSV_AF_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_AF.psivec {params.output_dir}/Delta_psi_AF.psivec &&
-        mv Delta_psi_AF.dpsi {params.output_dir}/Delta_psi_AF.dpsi;
+        mv Delta_psi_AF.psivec {params.DIR_output_dir}/Delta_psi_AF.psivec &&
+        mv Delta_psi_AF.dpsi {params.DIR_output_dir}/Delta_psi_AF.dpsi;
         """
 
 rule suppa_diffSplice_AL:
@@ -1087,7 +1087,7 @@ rule suppa_diffSplice_AL:
         TSV_AL_ioe = os.path.join("{output_dir}", "AS_events", \
             "events_AL_variable_"+config["threshold"]+".ioe"),
         DIR_output_dir = "{output_dir}",
-        STALNG_output_prefix = "Delta_psi_AL",
+        STRING_output_prefix = "Delta_psi_AL",
         method = "empirical",
         area = "1000",
         lower_bound = config["lower_bound"],
@@ -1116,18 +1116,18 @@ rule suppa_diffSplice_AL:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.AL_ioe} \
-        --psi {input.AL_CONTROL} {input.AL_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_AL_ioe} \
+        --psi {input.TSV_AL_CONTROL} {input.TSV_AL_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_AL.psivec {params.output_dir}/Delta_psi_AL.psivec &&
-        mv Delta_psi_AL.dpsi {params.output_dir}/Delta_psi_AL.dpsi;
+        mv Delta_psi_AL.psivec {params.DIR_output_dir}/Delta_psi_AL.psivec &&
+        mv Delta_psi_AL.dpsi {params.DIR_output_dir}/Delta_psi_AL.dpsi;
         """
 
 rule suppa_diffSplice_A3:
@@ -1141,7 +1141,7 @@ rule suppa_diffSplice_A3:
         TSV_A3_ioe = os.path.join("{output_dir}", "AS_events", \
             "events_A3_variable_"+config["threshold"]+".ioe"),
         DIR_output_dir = "{output_dir}",
-        STA3NG_output_prefix = "Delta_psi_A3",
+        STRING_output_prefix = "Delta_psi_A3",
         method = "empirical",
         area = "1000",
         lower_bound = config["lower_bound"],
@@ -1170,18 +1170,18 @@ rule suppa_diffSplice_A3:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.A3_ioe} \
-        --psi {input.A3_CONTROL} {input.A3_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_A3_ioe} \
+        --psi {input.TSV_A3_CONTROL} {input.TSV_A3_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_A3.psivec {params.output_dir}/Delta_psi_A3.psivec &&
-        mv Delta_psi_A3.dpsi {params.output_dir}/Delta_psi_A3.dpsi;
+        mv Delta_psi_A3.psivec {params.DIR_output_dir}/Delta_psi_A3.psivec &&
+        mv Delta_psi_A3.dpsi {params.DIR_output_dir}/Delta_psi_A3.dpsi;
         """
 
 rule suppa_diffSplice_A5:
@@ -1195,7 +1195,7 @@ rule suppa_diffSplice_A5:
         TSV_A5_ioe = os.path.join("{output_dir}", "AS_events", \
             "events_A5_variable_"+config["threshold"]+".ioe"),
         DIR_output_dir = "{output_dir}",
-        STA5NG_output_prefix = "Delta_psi_A5",
+        STRING_output_prefix = "Delta_psi_A5",
         method = "empirical",
         area = "1000",
         lower_bound = config["lower_bound"],
@@ -1224,18 +1224,18 @@ rule suppa_diffSplice_A5:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.A5_ioe} \
-        --psi {input.A5_CONTROL} {input.A5_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_A5_ioe} \
+        --psi {input.TSV_A5_CONTROL} {input.TSV_A5_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
-        mv Delta_psi_A5.psivec {params.output_dir}/Delta_psi_A5.psivec &&
-        mv Delta_psi_A5.dpsi {params.output_dir}/Delta_psi_A5.dpsi;
+        mv Delta_psi_A5.psivec {params.DIR_output_dir}/Delta_psi_A5.psivec &&
+        mv Delta_psi_A5.dpsi {params.DIR_output_dir}/Delta_psi_A5.dpsi;
         """
 
 ##############################################################################
@@ -1287,20 +1287,20 @@ rule suppa_diffSplice_transcripts:
         """
         suppa.py diffSplice \
         --method {params.method} \
-        --input {params.ioi} \
-        --psi {input.isoform_CONTROL} {input.isoform_EXPERIMENT} \
-        --tpm {params.control_quant} {params.experiment_quant} \
+        --input {params.TSV_transcript_events_ioi} \
+        --psi {input.TSV_isoform_CONTROL} {input.TSV_isoform_EXPERIMENT} \
+        --tpm {params.TSV_control_quant} {params.TSV_experiment_quant} \
         --area {params.area} \
         -gc \
         --lower-bound {params.lower_bound} \
         {params.gene_correction} \
-        --output {params.output_prefix} \
+        --output {params.STRING_output_prefix} \
         &> {log.LOG_local_log} &&
         sleep 5 &&
         mv Delta_psi_isoform.psivec \
-        {params.output_dir}/Delta_psi_isoform.psivec &&
+        {params.DIR_output_dir}/Delta_psi_isoform.psivec &&
         mv Delta_psi_isoform.dpsi \
-        {params.output_dir}/Delta_psi_isoform.dpsi;
+        {params.DIR_output_dir}/Delta_psi_isoform.dpsi;
         """
 
 ##############################################################################
@@ -1331,27 +1331,27 @@ rule merge_differential_splicing:
     run:
         # merge all local event types:
         df_list = []
-        SE_df = pd.read_csv(input.SE_dpsi, sep="\t")
+        SE_df = pd.read_csv(input.TSV_SE_dpsi, sep="\t")
         SE_df.columns = ["dPSI","pval"]
         df_list.append(SE_df)
-        MX_df = pd.read_csv(input.MX_dpsi, sep="\t")
+        MX_df = pd.read_csv(input.TSV_MX_dpsi, sep="\t")
         MX_df.columns = ["dPSI","pval"]
         df_list.append(MX_df)
-        RI_df = pd.read_csv(input.RI_dpsi, sep="\t")
+        RI_df = pd.read_csv(input.TSV_RI_dpsi, sep="\t")
         RI_df.columns = ["dPSI","pval"]
         df_list.append(RI_df)
-        AF_df = pd.read_csv(input.AF_dpsi, sep="\t")
+        AF_df = pd.read_csv(input.TSV_AF_dpsi, sep="\t")
         AF_df.columns = ["dPSI","pval"]
         df_list.append(AF_df)
-        AL_df = pd.read_csv(input.AL_dpsi, sep="\t")
+        AL_df = pd.read_csv(input.TSV_AL_dpsi, sep="\t")
         AL_df.columns = ["dPSI","pval"]
         df_list.append(AL_df)
-        A5_df = pd.read_csv(input.A5_dpsi, sep="\t")
+        A5_df = pd.read_csv(input.TSV_A5_dpsi, sep="\t")
         A5_df.columns = ["dPSI","pval"]
         df_list.append(A5_df)
-        A3_df = pd.read_csv(input.A3_dpsi, sep="\t")
+        A3_df = pd.read_csv(input.TSV_A3_dpsi, sep="\t")
         A3_df.columns = ["dPSI","pval"]
         df_list.append(A3_df)
         merged_dpsi = pd.concat(df_list)
-        merged_dpsi.to_csv(output.merged_AS_table, sep="\t")
+        merged_dpsi.to_csv(output.TSV_merged_AS_table, sep="\t")
 
