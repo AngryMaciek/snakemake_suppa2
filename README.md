@@ -1,8 +1,9 @@
-# Snakemake pipeline for AS analysis with SUPPA2
+# Snakemake pipeline for Alternative Splicing analysis with SUPPA2
 *Maciej_Bak  
 Swiss_Institute_of_Bioinformatics*
 
-[General information about the project]
+[SUPPA2](https://github.com/comprna/SUPPA) is a very nice tool to quantify AS events from RNA-Seq samples and perform differential splicing analysis.
+This repository is a very small snakemake workflow that I use for automated and reproducible analyses in my reseach.
 
 ## Snakemake pipeline execution
 Snakemake is a workflow management system that helps to create and execute data processing pipelines. It requires Python 3 and can be most easily installed via the bioconda package from the anaconda cloud service.
